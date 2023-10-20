@@ -1,0 +1,1 @@
+{"rsync":{"/vagrant":{"type":"rsync","guestpath":"/vagrant","hostpath":"C:/Users/Teodor/Desktop/DevOps Real-Time Projects/Vprofile Project Setup - Local/vprofile-project/vagrant/Manual_provisioning_WinMacIntel","disabled":false,"__vagrantfile":true,"owner":"vagrant","group":"vagrant"}}}
