@@ -1,5 +1,5 @@
-########
-### Prerequisites
+
+# Prerequisites
 - AWS Account
 - GitHub Account
 - Jenkins
@@ -8,7 +8,7 @@
 - Slack
 
 
-# Steps
+## Steps
 - Create Keypair
 - Create Security group for Jenkins, Nexus and SonarQube
 - Create EC2 instances for Jenkins, Nexus and SonarQube -> Use the shell scripts from the 'userdata' folder for installation
