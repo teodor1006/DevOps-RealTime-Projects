@@ -20,6 +20,6 @@
 - Publish Artifact to Nexus Repo
 - Slack Notification
 
-![Flow]{CI-jenkins.jpg}
+![Flow](CI-jenkins.jpg)
 
 
