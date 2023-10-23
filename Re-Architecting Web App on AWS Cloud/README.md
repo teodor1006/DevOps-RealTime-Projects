@@ -1,20 +1,10 @@
-# Prerequisites
-#
-- JDK 11 
-- Maven 3 
-- MySQL 8
-
 # Technologies 
-- Spring MVC
-- Spring Security
-- Spring Data JPA
+- AWS Account
+- Default VPC
+- Route53 Public Registered Name
 - Maven
-- JSP
-- Tomcat
-- MySQL
-- Memcached
-- Rabbitmq
-- ElasticSearch
+- JDK8
+  
 # Database
 Here,we used Mysql DB 
 sql dump file:
