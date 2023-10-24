@@ -1,25 +1,38 @@
-########
-### Prerequisites
-- JDK 1.8 or later
-- Maven 3 or later
-- MySQL 5.6 or later
-
-### Technologies 
-- Spring MVC
-- Spring Security
-- Spring Data JPA
+# Prerequisites
+- Jenkins
+- Sonarqube
+- Nexus Sonartype Repository
 - Maven
-- JSP
-- MySQL
-### Database
-Here,we used Mysql DB 
-MSQL DB Installation Steps for Linux ubuntu 14.04:
-- $ sudo apt-get update
-- $ sudo apt-get install mysql-server
+- Docker
+- Git
+- Slack
+- Amazon Elastic Container Registry (ECR)
+- Amazon Elastic Container Service (ECS)
+- AWS CLI
 
-Then look for the file :
-- /src/main/resources/accountsdb
-- accountsdb.sql file is a mysql dump file.we have to import this dump to mysql db server
-- > mysql -u <user_name> -p accounts < accountsdb.sql
+# Flow of Execution
+- Create/Update Github Webhook with Jenkins IP (Assuming you have completed Continuous Integration stage. see CI with Jenkins,Nexus,SonarQube & Slack).
+- Copy Dockerfile files to project repository.
+- Prepare Jenkinsfile for staging and Production in source code.
+- AWS Steps
+     a. Setup IAM User and ECR Repository
+- Jenkins Steps
+     a. Install plugins
+        i. Amazon ECR
+        ii. Docker, Docker build & publish
+        iii. Pipeline: AWS steps
+- Install Docker engine and AWS CLI on Jenkins server.
+- Write Jenkins for Build and publish image to ECR.
+- ECS Setup
+    a. Cluster
+    b. Task definition
+    c. Service
+- Write the Code to deploy Docker image to ECS.
+- Repeat the step for Prod ECS cluster.
+- Promoting Docker images for Production Environment.
 
+ ![Steps](CDwithJenkins.jpg)
+ ![Flow](Flow.jpg)
+
+  
 
