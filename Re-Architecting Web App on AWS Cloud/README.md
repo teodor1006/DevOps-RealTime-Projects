@@ -1,9 +1,16 @@
-# Technologies 
-- AWS Account
-- Default VPC
-- Route53 Public Registered Name
-- Maven
+# AWS Services Used:
+- AWS Beanstalk
+- Amazon Simple Storage Service (S3)
+- Amazon Relational Database System (RDS)
+- Amazon Elastic Cache
+- Amazon MQ
+- Amazon Route53
+- Amazon CloudFront
+- Amazon Cloudwatch
+
+# Technologies
 - JDK8
+- Maven
   
 # Database
 Here,we used Mysql DB 
@@ -26,7 +33,7 @@ sql dump file:
 - Add 443 https Listener to ELB
 - Build Artifact with Backend Information (Maven Install)
 - Deploy Artifact to Beanstalk
-- Create CDN (CloudFront) with ssl cert (Certificate Manager)
+- Create ContentDeliveryNetwork (CloudFront) with SSL Certificate (Certificate Manager)
 - Update Entry in GoDaddy DNS Zones (You should have a domain for that step)
 - Test the URL
 
