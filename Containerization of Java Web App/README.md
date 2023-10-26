@@ -39,7 +39,7 @@ This is a DevOps project for _Containerization_ of Vprofile Project using Docker
 ## Tools used in the Project:
 
 - [**Docker**](https://www.docker.com/) - Container Runtime Environment
-
+- VirtualBox setup or AWS account to create a server to test 
 - **Java Stack** - Vprofile Application Services
 
 ## Steps:
