@@ -127,7 +127,7 @@ You can find all kubernetes manifest files by cloning this repository.Clone this
 https://github.com/rumeysakdogan/kube-app.git
 ```
 
-In Project-12, we have Containerized the vprofile application and push it to the DockerHub. We will use the images below with :V1 tag from DockerHub repository in our K8s manifests.
+In "Containerization of Java Web App" Project, we have Containerized the vprofile application and push it to the DockerHub. We will use the images below with :V1 tag from DockerHub repository in our K8s manifests.
 
 ![](img/dockerhub.png)
 
