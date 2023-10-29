@@ -1,8 +1,6 @@
-# Project-16: Cloud State with Terraform
+# Cloud State with Terraform
 
-[*Project Source*](https://www.udemy.com/course/devopsprojects/?src=sac&kw=devops+projects)
-
-![](images/Project-16.png)
+![](images/Architecture.png)
 
 ## Pre-requisites
 
@@ -14,13 +12,11 @@
 ### Step-1: Create a repository in GitHub
 
 We will create a repo in GitHub and name it as `terraform-aws-vprofile`.
-You can make it private not to expose any Access keys you are using, since my AWS credentials are configured with awscli, I will create thsi repo as public.
-
-![](images/repo-created.png)
+You can make it private not to expose any Access keys you are using, since my AWS credentials are configured with awscli, I will create this repo as public.
 
 ### Step-2: Clone the repo to your local
 
-We will clone the repository to the IDE that we will be using. I will be using IntelliJ for this project.
+We will clone the repository to the IDE that we will be using. I will be using "VS Code" for this project.
 
 ### Step-3: Terraform Setup
 
@@ -30,11 +26,7 @@ You can follow documentation to do so.
 [Install Terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
 [Install AWSCLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
 
-Once both are installed, check their version from terminal/powershell.
-
-![](images/terraform-installed.png)
-
-You need to create an IAM user with Programmatic Access keys. Download credentials. configure aws from cli:
+You need also to create an IAM user with Programmatic Access keys. Download credentials. Configure aws from cli:
 
 ![](images/aws-configured.png)
 
@@ -63,15 +55,16 @@ Go to project directory and run `terraform init` to initialize backend.
 
 ### Step-5: Variables and Providers
 
-We will create a HA infrastructure for our vprofile project. We will create a VPC with 3 Public subnets and 3 Private subnets. We will create Elasticache, ActiveMQ and RDS-MySQL services for our application. To be able to create a reusable code, we will use variables in our Terraform code.
+We will create a HA infrastructure for our vprofile project: a VPC with 3 Public subnets and 3 Private subnets, also Elasticache, ActiveMQ and RDS-MySQL services for our application. To be able to create a reusable code, we will use variables in our Terraform code.
 
-Create `vars.tf` file and `providers.tf` file as in given under `terraform-files` directory.
+Create `vars.tf` file and `providers.tf` file.
 
 ### Step-6: KeyPairs
 
 We will create an SSH key with name of `vprofilekey` as we mentioned in `vars.tf` file. Go to `terraform-aws-vprofile` directory, run below command:
-
-![](images/ssh-keygen.png)
+```sh
+ssh-keygen
+```
 
 Now we can create `keypairs.tf` file with below content. We will use `file` function to get the content from path instead of copy-pasting whole content.
 
@@ -90,13 +83,9 @@ terraform apply
 
 Our first resource keypair is created with terraform.
 
-![](images/key-generated.png)
-
 ### Step-7: VPC Module & Setup
 
 One easier way to create resources with terraform is using modules. we can find modules in terraform registry. We will use official [VPC module](https://registry.terraform.io/modules/terraform-aws-modules/vpc/aws/latest) from AWS.
-
-Create `vpc.tf` file similar to given file under `terraform-files` directory.
 
 We will commit/push this file to remote repo.
 
@@ -118,11 +107,7 @@ We need to create SecGrp for below services:
 * Beanstalk instances
 * Backend services (Active MQ - Elasticache - RDS)
 
-Create `secgrp.tf` file similar to given file under `terraform-files` directory.
-
-We will commit/push this file to remote repo.
-
-Run below commands to create secgrp resources:
+Run below commands to create security groups resources:
 ```sh
 terraform validate
 terraform fmt
@@ -132,17 +117,9 @@ terraform apply
 
 ### Step-9: RDS, Elasticache and ActiveMQ Setup
 
-Create `backend-services.tf` file similar to given file under `terraform-files` directory.
-
-We will commit/push this file to remote repo.
-
 ### Step-10: Beanstalk ENV Setup
 
-Create `bean-app.tf` and `bean-env.tf` files similar to given file under `terraform-files` directory.
-
-We will commit/push this file to remote repo.
-
-Run below commands to create secgrp resources:
+Run below commands:
 ```sh
 terraform validate
 terraform fmt
@@ -165,11 +142,8 @@ sudo apt install git mysql-client -y
 git clone -b vp-rem https://github.com/devopshydclub/vprofile-project.git
 mysql -h ${rds-endpoint} -u ${dbuser} --password=${dbpass} accounts < /home/ubuntu/vprofile-project/src/main/resources/db_backup.sql
 ```
-Create `bastion-host.tf` file similar to given file under `terraform-files` directory.
 
-We will commit/push this file to remote repo.
-
-Run below commands to create secgrp resources:
+Run below commands:
 ```sh
 terraform validate
 terraform fmt
@@ -179,9 +153,9 @@ terraform apply
 
 ### Step-12: Artifact Deployment
 
-Clone repository to from bewlo repository, we need to do some updates in `application.properties` file.
+Clone repository from below repository, we need to do some updates in `application.properties` file.
 ```sh
-git clone -b vp-rem https://github.com/rumeysakdogan/vprofileproject-all.git
+git clone -b vp-rem https://github.com/devopshydclub/vprofile-project.git
 ```
 We will update below parts in that file.
 Replace db01 -> RDS endpoint
