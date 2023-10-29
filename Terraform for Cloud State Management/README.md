@@ -1,4 +1,4 @@
-# Cloud State with Terraform
+# Cloud State Management with Terraform
 
 ![](images/Architecture.png)
 
@@ -186,9 +186,7 @@ rabbitmq.password=test
 
 Save and exit, then go to project directory where `pom.xml` exists and run `mvn install` to generate our artifact.
 
-![](images/artifact-ready.png)
-
-Our artifact is ready, we will upload it to Beanstalk manually.
+Our artifact (vprofile-v2.war) is ready, we will upload it to Beanstalk manually.
 
 Go to Beanstalk from AWS Console, click on application you created by terraform. `Upload and Deploy` 
 
