@@ -13,3 +13,12 @@ terraform.tfstate.backup
 # Ignore private and public keys
 client_key
 client_key.pub
+
+# Ignore the "target" folder
+/target/
+
+# Ignore compiled Java classes
+*.class
+
+# Ignore JAR files
+*.jar
