@@ -22,3 +22,6 @@ client_key.pub
 
 # Ignore JAR files
 *.jar
+
+# Ignore keys
+*.pem
