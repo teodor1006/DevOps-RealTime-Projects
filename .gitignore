@@ -25,3 +25,10 @@ client_key.pub
 
 # Ignore keys
 *.pem
+
+# Ignore DS_STORE files
+.DS_STORE
+
+planfile
+
+__pycache__/
