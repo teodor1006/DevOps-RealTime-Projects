@@ -1,9 +1,9 @@
 locals {
-    dist_dir = "${path.module}/dist"
-    module_name = basename(abspath(path.module))
-    prefix = var.prefix
+  dist_dir    = "${path.module}/dist"
+  module_name = basename(abspath(path.module))
+  prefix      = var.prefix
 
-    content_types = {
+  content_types = {
     ".html" : "text/html",
     ".css" : "text/css",
     ".js" : "application/javascript",

@@ -19,7 +19,9 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
   enabled         = true
   is_ipv6_enabled = true
   http_version    = "http2and3"
-  price_class     = "PriceClass_100" // Use only Europe and North America
+  price_class     = "PriceClass_100" // Use only North America and Europe
+
+  // wait_for_deployment = true
 
   aliases = [
     var.domain_name,

@@ -1,19 +1,19 @@
 resource "aws_s3_bucket" "static_website" {
-    bucket = var.bucket_name
+  bucket = var.bucket_name
 
-    tags = var.common_tags
+  tags = var.common_tags
 }
 
 resource "aws_s3_bucket_website_configuration" "website_bucket" {
-    bucket = aws_s3_bucket.static_website.id
-    
-    index_document {
-      suffix = "index.html"
-    }
+  bucket = aws_s3_bucket.static_website.id
 
-    error_document {
-      key = "index.html"
-    }
+  index_document {
+    suffix = "index.html"
+  }
+
+  error_document {
+    key = "index.html"
+  }
 }
 
 resource "aws_s3_bucket_ownership_controls" "website_bucket" {
