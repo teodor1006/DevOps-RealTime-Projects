@@ -1,6 +1,7 @@
 # Re-Architecting Web App on AWS Cloud[Cloud Native]
 
-[*Project Source*](https://www.udemy.com/course/devopsprojects/?src=sac&kw=devops+projects)
+![Plan](SetupAWSReArch.jpg)
+![Comparison](AWSReArchComp.jpg)
 
 ## AWS Services Used:
 - AWS Beanstalk
@@ -15,9 +16,6 @@
 ## Technologies
 - JDK8
 - Maven
-
-![Plan](SetupAWSReArch.jpg)
-![Comparison](AWSReArchComp.jpg)
 
 ### Step-1: Create Keypair for Beanstalk EC2 Login
 
@@ -121,7 +119,7 @@ Single-instance-broker
 Broker name: vprofile-rmq
 Instance type: mq.t3.micro
 username: rabbit
-psw: bunnyhole789
+psw: levski1914
 Additional Settings:
 private Access
 VPC: use default
