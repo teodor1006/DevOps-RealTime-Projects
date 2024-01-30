@@ -1,0 +1,36 @@
+# Deployment 
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: amazon-app
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: amazon-app
+  template:
+    metadata:
+      labels:
+        app: amazon-app
+    spec:
+      containers:
+      - name: amazon-app
+        image: teodor1006/amazonapp:latest
+        ports:
+        - containerPort: 3000
+        imagePullPolicy: IfNotPresent
+
+---
+# Service
+apiVersion: v1
+kind: Service
+metadata:
+  name: amazon-app-service
+spec:
+  selector:
+    app: amazon-app
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 3000
+  type: NodePort
