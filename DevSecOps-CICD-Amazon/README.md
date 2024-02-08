@@ -542,13 +542,6 @@ minikube start --memory=4096
 ```
 Wait some minutes for minikube to be configured.
 
-* Run the following command to see if the pods are up and running:
-
-```
-kubectl get pods 
-```
-![pods](images/pods.png)
-
 * Create Deployment-Service Manifest File for K8s
 
 ```
@@ -558,7 +551,7 @@ kind: Deployment
 metadata:
   name: amazon-app
 spec:
-  replicas: 4
+  replicas: 2
   selector:
     matchLabels:
       app: amazon-app
@@ -595,6 +588,12 @@ spec:
 ```
 kubectl apply -f manifests.yaml
 ```
+* Run the following command to see if the pods are up and running:
+
+```
+kubectl get pods 
+```
+![pods](images/pods.png)
 
 * You can also access the K8s Dashboard
 
